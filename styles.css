@@ -1,0 +1,804 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Variables CSS */
+:root {
+    --guinda-principal: rgb(98, 19, 54);
+    --dorado-principal: rgb(231, 210, 155);
+    --negro-institucional: rgb(23, 27, 29);
+    --gris-medio: rgb(152, 152, 154);
+    --dorado-oscuro: rgb(166, 128, 44);
+    --guinda-oscuro: rgb(156, 35, 72);
+    --verde-oscuro: rgb(0, 47, 42);
+    --verde-medio: rgb(30, 91, 79);
+    --blanco: #FFFFFF;
+    --sombra-suave: 0 4px 20px rgba(98, 19, 54, 0.1);
+    --sombra-media: 0 8px 30px rgba(98, 19, 54, 0.15);
+    --sombra-fuerte: 0 15px 40px rgba(98, 19, 54, 0.2);
+    --transicion: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reset y base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, var(--blanco) 0%, #f8f8f8 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+        radial-gradient(circle at 20% 50%, rgba(231, 210, 155, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(98, 19, 54, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(231, 210, 155, 0.08) 0%, transparent 40%);
+    pointer-events: none;
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes floatFlower {
+    0%, 100% {
+        transform: translateY(0) rotate(0);
+    }
+    50% {
+        transform: translateY(-10px) rotate(5deg);
+    }
+}
+
+/* Container principal */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    background: var(--blanco);
+    border-radius: 12px;
+    box-shadow: var(--sombra-media);
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Header */
+.header {
+    background: var(--blanco);
+    padding: 30px 40px;
+    border-bottom: 1px solid rgba(98, 19, 54, 0.1);
+    position: relative;
+}
+
+.header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(231, 210, 155, 0.1));
+    pointer-events: none;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.logo-gobierno {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 60px;
+    width: auto;
+}
+
+.linea-079 {
+    background: var(--guinda-principal);
+    color: var(--blanco);
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    box-shadow: var(--sombra-suave);
+    white-space: nowrap;
+}
+
+/* Contenido principal */
+.main-content {
+    padding: 60px 40px;
+    background: var(--blanco);
+}
+
+.title-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.title-section h2 {
+    color: var(--negro-institucional);
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    letter-spacing: -0.5px;
+}
+
+.title-section p {
+    color: var(--gris-medio);
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.decorative-line {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--guinda-principal), var(--dorado-principal));
+    margin: 20px auto;
+    border-radius: 2px;
+}
+
+/* Selección de grupo */
+.group-section {
+    margin-bottom: 40px;
+}
+
+.group-title {
+    text-align: center;
+    color: var(--negro-institucional);
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.groups-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.group-card {
+    background: var(--blanco);
+    border: 2px solid #f0f0f0;
+    border-radius: 12px;
+    padding: 22px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    cursor: pointer;
+    transition: var(--transicion);
+    box-shadow: var(--sombra-suave);
+}
+
+.group-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--sombra-media);
+    border-color: var(--guinda-principal);
+}
+
+.group-card.active {
+    background: var(--guinda-principal);
+    color: var(--blanco);
+    border-color: var(--guinda-principal);
+}
+
+.group-emoji {
+    font-size: 26px;
+    width: 34px;
+    text-align: center;
+}
+
+.group-name {
+    font-weight: 700;
+    letter-spacing: -0.2px;
+}
+
+.group-desc {
+    color: var(--gris-medio);
+    font-size: 13px;
+}
+
+.group-card.active .group-desc {
+    color: var(--dorado-principal);
+    opacity: 0.9;
+}
+
+/* Badge de selección */
+.selection-badge {
+    display: none;
+    margin: 0 auto 30px;
+    width: max-content;
+    background: rgba(98, 19, 54, 0.06);
+    color: var(--guinda-principal);
+    border: 1px solid rgba(98, 19, 54, 0.15);
+    padding: 8px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.selection-badge.show {
+    display: block;
+}
+
+/* Grid de roles */
+.roles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+    transition: var(--transicion);
+}
+
+.roles-grid.disabled {
+    filter: grayscale(30%);
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.role-card {
+    background: var(--blanco);
+    border: 2px solid #f0f0f0;
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transicion);
+    position: relative;
+    overflow: hidden;
+}
+
+.role-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--guinda-principal), var(--dorado-principal));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: left;
+}
+
+.role-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--sombra-fuerte);
+    border-color: var(--guinda-principal);
+}
+
+.role-card:hover::before {
+    transform: scaleX(1);
+}
+
+.role-card.active {
+    background: var(--guinda-principal);
+    color: var(--blanco);
+    border-color: var(--guinda-principal);
+    transform: scale(1.02);
+    box-shadow: var(--sombra-fuerte);
+}
+
+.role-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    background: #f8f8f8;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    transition: var(--transicion);
+}
+
+.role-card.active .role-icon {
+    background: var(--dorado-principal);
+    color: var(--guinda-principal);
+}
+
+.role-card h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--negro-institucional);
+    letter-spacing: -0.5px;
+}
+
+.role-card.active h3 {
+    color: var(--blanco);
+}
+
+.role-card p {
+    color: var(--gris-medio);
+    font-size: 14px;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+.role-card.active p {
+    color: var(--dorado-principal);
+    opacity: 0.9;
+}
+
+/* Formulario de login */
+.login-form {
+    max-width: 500px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: var(--transicion);
+    display: none;
+}
+
+.login-form.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    color: var(--negro-institucional);
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif;
+    transition: var(--transicion);
+    background: var(--blanco);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--guinda-principal);
+    box-shadow: 0 0 0 3px rgba(98, 19, 54, 0.1);
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--gris-medio);
+    font-size: 14px;
+}
+
+.remember-me input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--guinda-principal);
+}
+
+.forgot-password {
+    color: var(--guinda-principal);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    transition: var(--transicion);
+}
+
+.forgot-password:hover {
+    color: var(--guinda-oscuro);
+    text-decoration: underline;
+}
+
+.btn-login {
+    width: 100%;
+    padding: 16px;
+    background: var(--guinda-principal);
+    color: var(--blanco);
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    transition: var(--transicion);
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-login::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(231, 210, 155, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.5s, height 0.5s;
+}
+
+.btn-login:hover {
+    background: var(--guinda-oscuro);
+    transform: translateY(-2px);
+    box-shadow: var(--sombra-media);
+}
+
+.btn-login:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-login:active {
+    transform: translateY(0);
+}
+
+/* Elemento decorativo */
+.joven-mexicana {
+    position: absolute;
+    bottom: 20px;
+    right: 40px;
+    width: 120px;
+    height: 150px;
+    opacity: 0.1;
+    background: linear-gradient(135deg, var(--guinda-principal), var(--dorado-principal));
+    mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120"><path d="M50 10c-8 0-15 7-15 15v10c0 8 7 15 15 15s15-7 15-15V25c0-8-7-15-15-15zm0 50c-15 0-25 10-25 25v25c0 5 5 10 10 10h30c5 0 10-5 10-10V85c0-15-10-25-25-25z"/></svg>');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+}
+
+/* Footer */
+.footer {
+    background: #fafafa;
+    padding: 25px 40px;
+    text-align: center;
+    border-top: 1px solid rgba(98, 19, 54, 0.1);
+}
+
+.footer p {
+    color: var(--gris-medio);
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.8;
+}
+
+.footer a {
+    color: var(--guinda-principal);
+    text-decoration: none;
+    font-weight: 500;
+    margin: 0 10px;
+    transition: var(--transicion);
+}
+
+.footer a:hover {
+    color: var(--guinda-oscuro);
+    text-decoration: underline;
+}
+
+/* Notificaciones */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--guinda-principal);
+    color: var(--blanco);
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: var(--sombra-media);
+    transform: translateX(400px);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.notification.show {
+    transform: translateX(0);
+}
+
+.notification.success {
+    background: var(--verde-medio);
+}
+
+.notification.error {
+    background: var(--guinda-oscuro);
+}
+
+/* Flores decorativas */
+.decorative-flower {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle, var(--dorado-principal) 30%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0.1;
+    animation: floatFlower 6s ease-in-out infinite;
+}
+
+.decorative-flower:nth-child(1) {
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.decorative-flower:nth-child(2) {
+    top: 60%;
+    right: 10%;
+    animation-delay: 2s;
+}
+
+.decorative-flower:nth-child(3) {
+    bottom: 15%;
+    left: 15%;
+    animation-delay: 4s;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .container {
+        max-width: 95%;
+    }
+    
+    .main-content {
+        padding: 40px 30px;
+    }
+    
+    .roles-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+    }
+    
+    .joven-mexicana {
+        width: 100px;
+        height: 130px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+        align-items: flex-start;
+        min-height: auto;
+    }
+    
+    .container {
+        margin: 20px 0;
+    }
+    
+    .header {
+        padding: 20px;
+    }
+    
+    .logo-section {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .logo-img {
+        height: 50px;
+    }
+    
+    .linea-079 {
+        font-size: 12px;
+        padding: 10px 16px;
+    }
+    
+    .main-content {
+        padding: 30px 20px;
+    }
+    
+    .title-section h2 {
+        font-size: 26px;
+    }
+    
+    .title-section p {
+        font-size: 14px;
+    }
+    
+    .groups-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .group-card {
+        padding: 18px;
+    }
+    
+    .roles-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .role-card {
+        padding: 25px;
+    }
+    
+    .role-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 28px;
+    }
+    
+    .role-card h3 {
+        font-size: 20px;
+    }
+    
+    .login-form {
+        padding: 0 10px;
+    }
+    
+    .form-options {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+    
+    .remember-me {
+        justify-content: center;
+    }
+    
+    .forgot-password {
+        text-align: center;
+    }
+    
+    .joven-mexicana {
+        display: none;
+    }
+    
+    .footer {
+        padding: 20px;
+    }
+    
+    .footer p {
+        font-size: 12px;
+        line-height: 1.6;
+    }
+    
+    .notification {
+        right: 10px;
+        left: 10px;
+        transform: translateY(-100px);
+    }
+    
+    .notification.show {
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 480px) {
+    .groups-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .group-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .group-emoji {
+        font-size: 32px;
+        width: auto;
+    }
+    
+    .role-card {
+        padding: 20px;
+    }
+    
+    .role-card h3 {
+        font-size: 18px;
+    }
+    
+    .role-card p {
+        font-size: 13px;
+    }
+    
+    .btn-login {
+        padding: 14px;
+        font-size: 14px;
+    }
+    
+    .form-group input {
+        padding: 12px 16px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 360px) {
+    .header {
+        padding: 15px;
+    }
+    
+    .main-content {
+        padding: 20px 15px;
+    }
+    
+    .title-section h2 {
+        font-size: 22px;
+    }
+    
+    .group-card {
+        padding: 15px;
+    }
+    
+    .role-card {
+        padding: 15px;
+    }
+    
+    .role-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+}
+
+/* Mejoras de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .decorative-flower {
+        animation: none;
+    }
+}
+
+/* Modo alto contraste */
+@media (prefers-contrast: high) {
+    .group-card,
+    .role-card {
+        border-width: 3px;
+    }
+    
+    .form-group input {
+        border-width: 3px;
+    }
+    
+    .btn-login {
+        border: 2px solid var(--blanco);
+    }
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Acceso - ADTT | Línea del Gobierno de México 079</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="decorative-flower"></div>
+    <div class="decorative-flower"></div>
+    <div class="decorative-flower"></div>
+    
+    <div class="container">
+        <header class="header">
+            <div class="logo-section">
+                <div class="logo-gobierno">
+                    <img src="logo-transformacion-digital.png" alt="Gobierno de México - Transformación Digital" class="logo-img">
+                </div>
+                <div class="linea-079">LÍNEA DEL GOBIERNO DE MÉXICO 079</div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="title-section">
+                <h2>Portal de Acceso Institucional</h2>
+                <div class="decorative-line"></div>
+                <p>Seleccione primero su <b>grupo</b> y después su <b>rol</b> para acceder al sistema</p>
+            </div>
+
+            <!-- Selección de grupo -->
+            <section class="group-section">
+                <div class="group-title">Selecciona tu grupo</div>
+                <div class="groups-grid" id="groupsGrid">
+                    <div class="group-card" onclick="selectGroup('servicios-generales', this)">
+                        <div class="group-emoji">🛠️</div>
+                        <div>
+                            <div class="group-name">Servicios Generales</div>
+                            <div class="group-desc">Operación, soporte y atención general</div>
+                        </div>
+                    </div>
+                    <div class="group-card" onclick="selectGroup('servicios-integrales', this)">
+                        <div class="group-emoji">🏛️</div>
+                        <div>
+                            <div class="group-name">Servicios Integrales</div>
+                            <div class="group-desc">Gestión integral y especialidades</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Badge con selección actual -->
+            <div id="selectionBadge" class="selection-badge"></div>
+
+            <div class="roles-grid disabled" id="rolesGrid">
+                <div class="role-card" onclick="selectRole('agente', this)">
+                    <div class="role-icon">👤</div>
+                    <h3>Agente</h3>
+                    <p>Acceso para agentes de atención ciudadana y operadores de la Línea 079</p>
+                </div>
+
+                <div class="role-card" onclick="selectRole('supervisor', this)">
+                    <div class="role-icon">👥</div>
+                    <h3>Supervisor</h3>
+                    <p>Acceso para supervisores y coordinadores de área operativa</p>
+                </div>
+
+                <div class="role-card" onclick="selectRole('administrativo', this)">
+                    <div class="role-icon">⚙️</div>
+                    <h3>Administrativo</h3>
+                    <p>Acceso para personal administrativo y de gestión del sistema</p>
+                </div>
+            </div>
+
+            <div class="login-form" id="loginForm">
+                <form onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label for="username">Usuario Institucional</label>
+                        <input type="text" id="username" name="username" required placeholder="Ingrese su usuario">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Contraseña</label>
+                        <input type="password" id="password" name="password" required placeholder="Ingrese su contraseña">
+                    </div>
+
+                    <div class="form-options">
+                        <div class="remember-me">
+                            <input type="checkbox" id="remember" name="remember">
+                            <label for="remember">Recordar sesión</label>
+                        </div>
+                        <a href="#" class="forgot-password">¿Olvidó su contraseña?</a>
+                    </div>
+
+                    <button type="submit" class="btn-login">
+                        <span id="btnText">INICIAR SESIÓN</span>
+                    </button>
+                </form>
+            </div>
+
+            <div class="joven-mexicana"></div>
+        </main>
+
+        <footer class="footer">
+            <p>© GACG 2024-2030 Gobierno de México | Todos los derechos reservados 2025<br>
+                <a href="#">Aviso de Privacidad</a> | 
+                <a href="#">Términos y Condiciones</a> | 
+                <a href="#">Marco Jurídico</a> |
+                <a href="#">Portal de Obligaciones de Transparencia</a>
+            </p>
+        </footer>
+    </div>
+
+    <div class="notification" id="notification">Rol seleccionado correctamente</div>
+
+    <script src="script.js"></script>
+</body>
+</html>

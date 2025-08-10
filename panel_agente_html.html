@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Agente - ADTT | Línea del Gobierno de México 079</title>
+    <link rel="stylesheet" href="panel-styles.css">
+</head>
+<body>
+    <!-- Header principal -->
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo-section">
+                <img src="logo-transformacion-digital.png" alt="Gobierno de México" class="logo-img">
+                <div class="header-info">
+                    <h1>Panel de Agente</h1>
+                    <span class="department">Servicios Integrales - ADTT</span>
+                </div>
+            </div>
+            <div class="user-section">
+                <div class="welcome-message" id="welcomeMessage">
+                    Es un placer tenerte de vuelta, <span class="user-name">María Elena</span>
+                </div>
+                <div class="user-controls">
+                    <button class="btn-secondary" onclick="showNotification('Configuración no disponible', 'info')">
+                        ⚙️ Configuración
+                    </button>
+                    <button class="btn-logout" onclick="logout()">
+                        🚪 Cerrar Sesión
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <!-- Sidebar de navegación -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h3>Menú Principal</h3>
+                <button class="sidebar-toggle" id="sidebarToggle">☰</button>
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="nav-item active">
+                    <a href="#" onclick="showSection('perfil')" class="nav-link">
+                        <span class="nav-icon">👤</span>
+                        <span class="nav-text">Perfil</span>
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="#" onclick="showSection('asistencias')" class="nav-link">
+                        <span class="nav-icon">📅</span>
+                        <span class="nav-text">Asistencias</span>
+                    </a>
+                </li>
+                
+                <li class="nav-item has-submenu">
+                    <a href="#" onclick="toggleSubmenu(this)" class="nav-link">
+                        <span class="nav-icon">📋</span>
+                        <span class="nav-text">Consulta</span>
+                        <span class="submenu-arrow">▼</span>
+                    </a>
+                    <ul class="nav-submenu">
+                        <li><a href="#" onclick="showSection('nota-informativa')">Nota Informativa</a></li>
+                        <li><a href="#" onclick="showSection('directorio-juridico')">Directorio Jurídico</a></li>
+                        <li><a href="#" onclick="showSection('directorio-general')">Directorio General</a></li>
+                    </ul>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="#" onclick="showSection('plataformas')" class="nav-link">
+                        <span class="nav-icon">🔗</span>
+                        <span class="nav-text">Accesos a Plataformas</span>
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="#" onclick="showSection('incidencias')" class="nav-link">
+                        <span class="nav-icon">⚠️</span>
+                        <span class="nav-text">Incidencias</span>
+                    </a>
+                </li>
+                
+                <li class="nav-item has-submenu">
+                    <a href="#" onclick="toggleSubmenu(this)" class="nav-link">
+                        <span class="nav-icon">⏰</span>
+                        <span class="nav-text">Tiempos Adeudados</span>
+                        <span class="submenu-arrow">▼</span>
+                    </a>
+                    <ul class="nav-submenu">
+                        <li><a href="#" onclick="showSection('adeudos')">Adeudos</a></li>
+                        <li><a href="#" onclick="showSection('reglamento')">Reglamento</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Contenido principal -->
+        <main class="main-content">
+            <!-- Sección Perfil -->
+            <section id="perfil" class="content-section active">
+                <div class="section-header">
+                    <h2>👤 Perfil del Agente</h2>
+                    <p>Información personal y datos institucionales</p>
+                </div>
+                
+                <div class="profile-grid">
+                    <div class="profile-card">
+                        <div class="profile-avatar">
+                            <div class="avatar-circle">ME</div>
+                            <div class="status-indicator online"></div>
+                        </div>
+                        <div class="profile-basic">
+                            <h3>María Elena Rodríguez García</h3>
+                            <p class="profile-role">Agente de Servicios Integrales</p>
+                            <p class="profile-id">ID: SI-AG-2024-0157</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <div class="info-icon">📊</div>
+                            <div class="info-content">
+                                <label>Nivel Propuesto</label>
+                                <span>Nivel 3 - Especialista</span>
+                            </div>
+                        </div>
+                        
+                        <div class="info-card">
+                            <div class="info-icon">🏷️</div>
+                            <div class="info-content">
+                                <label>Seudónimo</label>
+                                <span>Elena_079</span>
+                            </div>
+                        </div>
+                        
+                        <div class="info-card">
+                            <div class="info-icon">🕐</div>
+                            <div class="info-content">
+                                <label>Turno</label>
+                                <span>Matutino</span>
+                            </div>
+                        </div>
+                        
+                        <div class="info-card">
+                            <div class="info-icon">⏰</div>
+                            <div class="info-content">
+                                <label>Horario</label>
+                                <span>08:00 - 16:00 hrs</span>
+                            </div>
+                        </div>
+                        
+                        <div class="info-card">
+                            <div class="info-icon">📍</div>
+                            <div class="info-content">
+                                <label>Posición ATDTSI</label>
+                                <span>Cubículo 15 - Piso 3</span>
+                            </div>
+                        </div>
+                        
+                        <div class="info-card">
+                            <div class="info-icon">📧</div>
+                            <div class="info-content">
+                                <label>Correo Institucional</label>
+                                <span>elena.rodriguez@gob.mx</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección Asistencias -->
+            <section id="asistencias" class="content-section">
+                <div class="section-header">
+                    <h2>📅 Control de Asistencias</h2>
+                    <p>Registro de asistencias del mes actual</p>
+                </div>
+                
+                <div class="attendance-container">
+                    <div class="attendance-summary">
+                        <div class="summary-card present">
+                            <div class="summary-icon">✅</div>
+                            <div class="summary-info">
+                                <span class="summary-number">18</span>
+                                <span class="summary-label">Días Presentes</span>
+                            </div>
+                        </div>
+                        
+                        <div class="summary-card absent">
+                            <div class="summary-icon">❌</div>
+                            <div class="summary-info">
+                                <span class="summary-number">2</span>
+                                <span class="summary-label">Faltas</span>
+                            </div>
+                        </div>
+                        
+                        <div class="summary-card late">
+                            <div class="summary-icon">⏰</div>
+                            <div class="summary-info">
+                                <span class="summary-number">3</span>
+                                <span class="summary-label">Retardos</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="calendar-container">
+                        <div class="calendar-header">
+                            <h3>Agosto 2025</h3>
+                            <div class="calendar-nav">
+                                <button class="btn-calendar" onclick="changeMonth(-1)">◀</button>
+                                <button class="btn-calendar" onclick="changeMonth(1)">▶</button>
+                            </div>
+                        </div>
+                        
+                        <div class="calendar-grid" id="calendarGrid">
+                            <!-- El calendario se genera con JavaScript -->
+                        </div>
+                        
+                        <div class="calendar-legend">
+                            <div class="legend-item">
+                                <span class="legend-color present"></span>
+                                <span>Presente</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color absent"></span>
+                                <span>Falta</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color late"></span>
+                                <span>Retardo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección Nota Informativa -->
+            <section id="nota-informativa" class="content-section">
+                <div class="section-header">
+                    <h2>📋 Nota Informativa</h2>
+                    <p>Comunicados e información relevante</p>
+                </div>
+                
+                <div class="placeholder-content">
+                    <div class="placeholder-icon">📄</div>
+                    <h3>Próximamente</h3>
+                    <p>Esta sección estará disponible en futuras actualizaciones del sistema.</p>
+                </div>
+            </section>
+
+            <!-- Sección Directorio Jurídico -->
+            <section id="directorio-juridico" class="content-section">
+                <div class="section-header">
+                    <h2>⚖️ Directorio Jurídico</h2>
+                    <p>Contactos del área jurídica institucional</p>
+                </div>
+                
+                <div class="placeholder-content">
+                    <div class="placeholder-icon">⚖️</div>
+                    <h3>Próximamente</h3>
+                    <p>Esta sección estará disponible en futuras actualizaciones del sistema.</p>
+                </div>
+            </section>
+
+            <!-- Sección Directorio General -->
+            <section id="directorio-general" class="content-section">
+                <div class="section-header">
+                    <h2>📞 Directorio General</h2>
+                    <p>Contactos generales de la institución</p>
+                </div>
+                
+                <div class="placeholder-content">
+                    <div class="placeholder-icon">📞</div>
+                    <h3>Próximamente</h3>
+                    <p>Esta sección estará disponible en futuras actualizaciones del sistema.</p>
+                </div>
+            </section>
+
+            <!-- Sección Accesos a Plataformas -->
+            <section id="plataformas" class="content-section">
+                <div class="section-header">
+                    <h2>🔗 Accesos a Plataformas</h2>
+                    <p>Plataformas y sistemas asignados</p>
+                </div>
+                
+                <div class="platforms-grid">
+                    <div class="platform-card">
+                        <div class="platform-icon">🌐</div>
+                        <div class="platform-info">
+                            <h4>Sistema ADTT</h4>
+                            <p>Plataforma principal de gestión</p>
+                            <span class="platform-status active">Activo</span>
+                        </div>
+                        <button class="btn-access" onclick="accessPlatform('adtt')">Acceder</button>
+                    </div>
+                    
+                    <div class="platform-card">
+                        <div class="platform-icon">📊</div>
+                        <div class="platform-info">
+                            <h4>Portal de Reportes</h4>
+                            <p>Generación de reportes institucionales</p>
+                            <span class="platform-status active">Activo</span>
+                        </div>
+                        <button class="btn-access" onclick="accessPlatform('reportes')">Acceder</button>
+                    </div>
+                    
+                    <div class="platform-card">
+                        <div class="platform-icon">💬</div>
+                        <div class="platform-info">
+                            <h4>Sistema de Comunicación</h4>
+                            <p>Herramientas de comunicación interna</p>
+                            <span class="platform-status maintenance">Mantenimiento</span>
+                        </div>
+                        <button class="btn-access disabled" disabled>No Disponible</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección Incidencias -->
+            <section id="incidencias" class="content-section">
+                <div class="section-header">
+                    <h2>⚠️ Incidencias</h2>
+                    <p>Registro de incidencias del agente</p>
+                </div>
+                
+                <div class="incidents-container">
+                    <div class="incident-card low">
+                        <div class="incident-header">
+                            <span class="incident-id">#INC-2025-0234</span>
+                            <span class="incident-priority low">Baja</span>
+                        </div>
+                        <h4>Retardo justificado</h4>
+                        <p>Retardo de 15 minutos por tráfico vehicular</p>
+                        <div class="incident-meta">
+                            <span>📅 05/08/2025</span>
+                            <span class="incident-status resolved">Resuelta</span>
+                        </div>
+                    </div>
+                    
+                    <div class="incident-card medium">
+                        <div class="incident-header">
+                            <span class="incident-id">#INC-2025-0189</span>
+                            <span class="incident-priority medium">Media</span>
+                        </div>
+                        <h4>Falta por enfermedad</h4>
+                        <p>Ausencia justificada con comprobante médico</p>
+                        <div class="incident-meta">
+                            <span>📅 28/07/2025</span>
+                            <span class="incident-status resolved">Resuelta</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección Adeudos -->
+            <section id="adeudos" class="content-section">
+                <div class="section-header">
+                    <h2>⏰ Adeudos de Tiempo</h2>
+                    <p>Tiempos pendientes de compensar</p>
+                </div>
+                
+                <div class="debts-summary">
+                    <div class="debt-card">
+                        <div class="debt-icon">⏰</div>
+                        <div class="debt-info">
+                            <span class="debt-amount">2:30</span>
+                            <span class="debt-label">Horas Adeudadas</span>
+                        </div>
+                    </div>
+                    
+                    <div class="debt-details">
+                        <h4>Detalle de Adeudos</h4>
+                        <ul class="debt-list">
+                            <li>
+                                <span>Retardo 05/08/2025</span>
+                                <span class="debt-time">15 min</span>
+                            </li>
+                            <li>
+                                <span>Salida anticipada 12/07/2025</span>
+                                <span class="debt-time">45 min</span>
+                            </li>
+                            <li>
+                                <span>Retardo 28/06/2025</span>
+                                <span class="debt-time">30 min</span>
+                            </li>
+                            <li>
+                                <span>Retardo 15/06/2025</span>
+                                <span class="debt-time">20 min</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección Reglamento -->
+            <section id="reglamento" class="content-section">
+                <div class="section-header">
+                    <h2>📖 Reglamento Institucional</h2>
+                    <p>Normativas y disposiciones internas</p>
+                </div>
+                
+                <div class="regulation-container">
+                    <div class="regulation-nav">
+                        <button class="btn-regulation active" onclick="showRegulationSection('general')">
+                            General
+                        </button>
+                        <button class="btn-regulation" onclick="showRegulationSection('asistencia')">
+                            Asistencia
+                        </button>
+                        <button class="btn-regulation" onclick="showRegulationSection('conducta')">
+                            Conducta
+                        </button>
+                    </div>
+                    
+                    <div class="regulation-content">
+                        <div id="regulation-general" class="regulation-section active">
+                            <h4>Disposiciones Generales</h4>
+                            <p>El presente reglamento tiene por objetivo establecer las normas de comportamiento y funcionamiento dentro de la institución...</p>
+                        </div>
+                        
+                        <div id="regulation-asistencia" class="regulation-section">
+                            <h4>Normas de Asistencia</h4>
+                            <p>Los horarios de trabajo deberán respetarse conforme a lo establecido en el contrato laboral...</p>
+                        </div>
+                        
+                        <div id="regulation-conducta" class="regulation-section">
+                            <h4>Código de Conducta</h4>
+                            <p>Todo el personal deberá mantener un comportamiento profesional y ético en el desempeño de sus funciones...</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Notificaciones -->
+    <div class="notification" id="notification"></div>
+
+    <!-- Loading overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+        <p>Cargando...</p>
+    </div>
+
+    <script src="panel-script.js"></script>
+</body>
+</html>

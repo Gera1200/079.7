@@ -153,12 +153,26 @@ function handleLogin(event) {
         });
         
         // Simular redirección después de 2 segundos
-        setTimeout(() => {
+        //setTimeout(() => {
             // window.location.href = `/panel/${selectedGroup}/${selectedRole}`;
-            console.log('Redirección simulada completada');
-        }, 2000);
-    }, 1500);
-}
+            //console.log('Redirección simulada completada');
+      // }, 2000);
+    //}, 1500);
+//}
+
+setTimeout(() => {
+    const successMessage = `Bienvenido - ${groupNames[selectedGroup]} / ${roleNamesDisplay[selectedRole]}`;
+    showNotification(successMessage, 'success');
+    
+    // Redirección real según grupo y rol
+    if (selectedGroup === 'servicios-integrales' && selectedRole === 'agente') {
+        window.location.href = 'panel-agente.html';
+    } else {
+        // Para otros roles/grupos (por ahora)
+        showNotification('Panel no disponible aún para este rol', 'info');
+    }
+}, 1500);
+
 
 // Función para mostrar notificaciones
 function showNotification(message, type = 'info') {
@@ -403,4 +417,5 @@ window.selectRole = selectRole;
 window.handleLogin = handleLogin;
 window.showNotification = showNotification;
 window.resetForm = resetForm;
+
 window.getSessionData = getSessionData;
